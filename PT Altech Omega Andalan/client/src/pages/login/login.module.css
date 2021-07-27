@@ -1,0 +1,53 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 168, 112);
+}
+
+.container .main {
+  background-color: white;
+  padding: 50px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+.main h2 {
+  color: rgb(245, 168, 112);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.main h3 {
+  margin-top: 15px !important;
+  font-size: 14px !important;
+  text-align: center !important;
+}
+
+.main span {
+  color: rgb(245, 168, 112);
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100% !important;
+  background-color: rgb(245, 168, 112) !important;
+  border-color: rgb(245, 168, 112) !important;
+}
+
+.btn:hover {
+  background-color: rgb(238, 136, 64) !important;
+  border-color: rgb(238, 136, 64) !important;
+}
+
+.main span:hover {
+  cursor: pointer;
+  color: rgb(238, 136, 64);
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
