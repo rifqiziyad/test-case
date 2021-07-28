@@ -54,11 +54,26 @@ module.exports = {
   },
   createRoomChat: async (req, res) => {
     try {
-      const userId = req.query.id
+      const { userId, roomChatName } = req.body
       const roomChatNumber = parseInt(Math.random() * 100000)
       const setData = {
         room_chat_number: roomChatNumber,
-        user_id: userId
+        user_id: userId,
+        room_chat_name: roomChatName
+      }
+      const result = await model.createRoomChat(setData)
+      return helper.response(res, 200, 'Success Room Chat', result)
+    } catch (error) {
+      return helper.response(res, 400, 'Bad Request', error)
+    }
+  },
+  createRoomChatNewMember: async (req, res) => {
+    try {
+      const { userId, roomChatName, roomChatNumber } = req.body
+      const setData = {
+        room_chat_number: roomChatNumber,
+        user_id: userId,
+        room_chat_name: roomChatName
       }
       const result = await model.createRoomChat(setData)
       return helper.response(res, 200, 'Success Room Chat', result)
@@ -78,11 +93,12 @@ module.exports = {
   },
   deleteRoomChat: async (req, res) => {
     try {
-      const { roomChatNumber } = req.query
-      const codition = {
-        room_chat_number: roomChatNumber
-      }
-      const checkRoomChatData = await model.getRoomChat(codition)
+      let { roomChatNumber, userId } = req.query
+      const RoomChatNumber = parseInt(roomChatNumber)
+      const UserId = parseInt(userId)
+      const codition = `room_chat_number = ${RoomChatNumber} AND user_id = ${UserId}`
+      const checkRoomChatData = await model.getroomchat(codition)
+      console.log(checkRoomChatData)
       if (checkRoomChatData.length > 0) {
         const result = await model.deleteRoomChat(codition)
         return helper.response(res, 200, 'Success Delete Room Chat', result)
@@ -90,16 +106,18 @@ module.exports = {
         return helper.response(res, 404, 'Room Chat Not Found')
       }
     } catch (error) {
+      console.log(error)
       return helper.response(res, 400, 'Bad Request', error)
     }
   },
   createMessage: async (req, res) => {
     try {
-      const { roomChatNumber, userId, message } = req.body
+      const { roomChatNumber, userId, message, roomChatName } = req.body
       const setData = {
         room_chat_number: roomChatNumber,
         user_id: userId,
-        message: message
+        message: message,
+        room_chat_name: roomChatName
       }
       const result = await model.createMessage(setData)
       return helper.response(res, 200, 'Success Create Chat', result)

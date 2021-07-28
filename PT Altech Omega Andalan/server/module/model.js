@@ -57,11 +57,20 @@ module.exports = {
       )
     })
   },
+  getroomchat: (codition) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        `SELECT * FROM room_chat WHERE ${codition}`,
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error))
+        }
+      )
+    })
+  },
   deleteRoomChat: (codition) => {
     return new Promise((resolve, reject) => {
       connection.query(
-        'DELETE FROM room_chat WHERE ?',
-        codition,
+        `DELETE FROM room_chat WHERE ${codition}`,
         (error, result) => {
           !error ? resolve(result) : reject(new Error(error))
         }
@@ -85,7 +94,7 @@ module.exports = {
   getMessage: (codition) => {
     return new Promise((resolve, reject) => {
       connection.query(
-        'SELECT * FROM chat WHERE ?',
+        'SELECT * FROM chat JOIN user ON chat.user_id = user.user_id WHERE ?',
         codition,
         (error, result) => {
           !error ? resolve(result) : reject(new Error(error))

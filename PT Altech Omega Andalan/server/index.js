@@ -18,6 +18,22 @@ app.use('/backend', routerNavigation)
 
 const server = require('http').createServer(app)
 
+const io = socket(server, {
+  cors: {
+    origin: '*'
+  },
+  path: '/backend/socket.io'
+})
+
+io.on('connection', (socket) => {
+  console.log('Socket.io Connect !')
+
+  socket.on('globalMessage', (data) => {
+    console.log(data)
+    io.emit('chatMessage', data)
+  })
+})
+
 server.listen(port, () => {
   console.log(`Express app is listen on port ${port} !`)
 })
