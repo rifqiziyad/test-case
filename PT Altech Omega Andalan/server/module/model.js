@@ -31,5 +31,66 @@ module.exports = {
         }
       )
     })
+  },
+  createRoomChat: (data) => {
+    return new Promise((resolve, reject) => {
+      connection.query('INSERT INTO room_chat SET ?', data, (error, result) => {
+        if (!error) {
+          const newData = {
+            ...data
+          }
+          resolve(newData)
+        } else {
+          reject(new Error(error))
+        }
+      })
+    })
+  },
+  getRoomChat: (codition) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        'SELECT * FROM room_chat WHERE ?',
+        codition,
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error))
+        }
+      )
+    })
+  },
+  deleteRoomChat: (codition) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        'DELETE FROM room_chat WHERE ?',
+        codition,
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error))
+        }
+      )
+    })
+  },
+  createMessage: (data) => {
+    return new Promise((resolve, reject) => {
+      connection.query('INSERT INTO chat SET ?', data, (error, result) => {
+        if (!error) {
+          const newData = {
+            ...data
+          }
+          resolve(newData)
+        } else {
+          reject(new Error(error))
+        }
+      })
+    })
+  },
+  getMessage: (codition) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        'SELECT * FROM chat WHERE ?',
+        codition,
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error))
+        }
+      )
+    })
   }
 }
