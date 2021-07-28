@@ -55,6 +55,10 @@ export default function Chat(props) {
     setMessage(event.target.value);
   };
 
+  // setTimeout(() => {
+  //   getRoomChat();
+  // }, 10000);
+
   const changeTextInputGroup = (event) => {
     setDataCreateGroup({
       userId: userId[0],
@@ -125,12 +129,12 @@ export default function Chat(props) {
           console.log(err.response);
         });
       setIsShowCreateGroup(false);
+      getRoomChat();
     }
     setDataCreateGroup({
       userId: userId[0],
       roomChatName: "",
     });
-    getRoomChat();
   };
 
   const showInputGropChat = () => {

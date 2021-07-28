@@ -3,7 +3,7 @@ import env from "dotenv";
 env.config();
 
 const axiosApiIntances = axios.create({
-  baseURL: "http://localhost:3006/backend/chat/",
+  baseURL: "https://test-case-rifqi-ziyad-imtinan.herokuapp.com/backend/chat/",
 });
 
 export default axiosApiIntances;
