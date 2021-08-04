@@ -1,0 +1,27 @@
+.container {
+  /* padding: 120px; */
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h5 {
+  margin-left: 10px;
+}
+
+.main {
+  border: black solid 1px;
+}
+
+.button {
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .form {
+  border-top: black solid 1px;
+  padding: 40px 200px;
+}
