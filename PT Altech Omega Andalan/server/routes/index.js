@@ -1,8 +1,8 @@
-const express = require("express");
-const Route = express.Router();
+const express = require('express')
+const Route = express.Router()
 
-const userRouter = require("../module/routes");
+const userRouter = require('../module/routes')
 
-Route.use("/chat", userRouter);
+Route.use('/chat', userRouter)
 
-module.exports = Route;
+module.exports = Route
