@@ -18,10 +18,20 @@ module.exports = {
         quantity: qty,
       };
       const checkProductById = await cartModel.getProductByCondition(productId);
+      const checkCartById = await cartModel.checkCartByCondition(productId, id);
       if (checkProductById.length > 0) {
         if (checkProductById[0].user_id != id) {
-          const result = await cartModel.createData(setData);
-          return helper.response(res, 200, "Success Create Cart", result);
+          if (checkCartById.length === 0) {
+            const result = await cartModel.createData(setData);
+            return helper.response(res, 200, "Success Create Cart", result);
+          } else {
+            return helper.response(
+              res,
+              402,
+              `Product Id = ${productId} is already in the cart`,
+              null
+            );
+          }
         } else {
           return helper.response(
             res,
@@ -69,12 +79,12 @@ module.exports = {
       const setData = {
         quantity: qty,
       };
-      const checkProductById = await cartModel.getProductByCondition(
+      const checkCartById = await cartModel.checkCartByCondition(
         productId,
         userId
       );
 
-      if (checkProductById.length > 0) {
+      if (checkCartById.length > 0) {
         const result = await cartModel.updateData(setData, productId, userId);
         return helper.response(res, 200, "Success Update Cart Data", result);
       } else {
@@ -86,7 +96,25 @@ module.exports = {
         );
       }
     } catch (error) {
-      console.log(error);
+      return helper.response(res, 400, "Bad Request", error);
+    }
+  },
+  deleteData: async (req, res) => {
+    try {
+      const cartId = req.params.id;
+      const checkCartById = await cartModel.checkCartByCartId(cartId);
+      if (checkCartById.length > 0) {
+        await cartModel.deleteData(cartId);
+        return helper.response(res, 200, "Success Delete Cart", checkCartById);
+      } else {
+        return helper.response(
+          res,
+          404,
+          `Cart Id = ${productId} Not Found`,
+          null
+        );
+      }
+    } catch (error) {
       return helper.response(res, 400, "Bad Request", error);
     }
   },

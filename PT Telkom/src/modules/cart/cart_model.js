@@ -45,6 +45,28 @@ module.exports = {
       );
     });
   },
+  checkCartByCondition: (productId, userId) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "SELECT * FROM cart WHERE product_id = ? AND user_id = ?",
+        [productId, userId],
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error));
+        }
+      );
+    });
+  },
+  checkCartByCartId: (id) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "SELECT * FROM cart WHERE cart_id = ?",
+        id,
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error));
+        }
+      );
+    });
+  },
   updateData: (setData, productId, userId) => {
     return new Promise((resolve, reject) => {
       connection.query(
@@ -61,6 +83,17 @@ module.exports = {
           } else {
             reject(new Error(error));
           }
+        }
+      );
+    });
+  },
+  deleteData: (id) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "DELETE FROM cart WHERE cart_id = ?",
+        id,
+        (error, result) => {
+          !error ? resolve(result) : reject(new Error(error));
         }
       );
     });
