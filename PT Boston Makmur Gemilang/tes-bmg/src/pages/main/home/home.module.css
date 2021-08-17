@@ -1,0 +1,35 @@
+.welcome {
+  padding: 60px 40px;
+  color: white;
+  background: linear-gradient(to right, #17477a 20%, #0794bb 50%);
+}
+
+.welcome h1,
+.welcome h3 {
+  font-weight: 700;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search input {
+  margin-top: 40px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 88%;
+  border: none;
+  outline: none;
+}
+
+.search button {
+  margin-top: 40px;
+  width: 10%;
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #59d6f8, #01b4e4);
+  border: none;
+  color: white;
+  font-weight: 700;
+}
