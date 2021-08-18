@@ -1,3 +1,7 @@
+.container {
+  padding: 0;
+}
+
 .welcome {
   padding: 60px 40px;
   color: white;
@@ -32,4 +36,62 @@
   border: none;
   color: white;
   font-weight: 700;
+}
+
+.navPopular {
+  padding: 30px 40px 10px;
+  display: flex;
+}
+
+.navPopular h4 {
+  margin: 0 30px 0 0;
+}
+
+.navPopular div {
+  border: #0d253f solid 1px;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 20px;
+}
+
+.navPopular div button {
+  padding: 3px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: #0d253f;
+  font-weight: 700;
+}
+
+.navPopular div button.btnPopular {
+  background-color: #0d253f;
+  color: #39d4ff;
+}
+
+.cardMovie {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+
+.cardMovie .card {
+  margin-right: 20px;
+}
+
+.cardMovie .card img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.cardMovie .card h5 {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cardMovie .card h6 {
+  font-size: 16px;
+  color: #7a7a7a;
+  font-weight: 200;
 }

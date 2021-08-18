@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../../assets/logo.svg";
-import iconNotif from "../../assets/bell.png";
-import iconSearch from "../../assets/search.png";
+// import iconNotif from "../../assets/bell.png";
+// import iconSearch from "../../assets/search.png";
 import styles from "./Navbar.module.css";
 
 function NavBar() {
