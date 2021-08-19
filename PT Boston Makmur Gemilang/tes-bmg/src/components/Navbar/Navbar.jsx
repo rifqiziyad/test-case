@@ -1,8 +1,6 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../../assets/logo.svg";
-// import iconNotif from "../../assets/bell.png";
-// import iconSearch from "../../assets/search.png";
 import styles from "./Navbar.module.css";
 
 function NavBar() {
@@ -41,27 +39,6 @@ function NavBar() {
               <Nav.Link href="#pricing">People</Nav.Link>
               <Nav.Link href="#pricing">More</Nav.Link>
             </Nav>
-            {/* <Nav className={styles.navRight}>
-              <Nav.Link className={`${styles.navPlus}`} href="#deets">
-                +
-              </Nav.Link>
-              <Nav.Link href="#memes">EN</Nav.Link>
-              <Navbar.Brand className={styles.dropdownIcon} href="#home">
-                <img
-                  src={iconNotif}
-                  className={styles.icon}
-                  alt="Icon Notification"
-                />
-              </Navbar.Brand>
-              <Nav.Link href="#memes">R</Nav.Link>
-              <Navbar.Brand className={styles.dropdownIcon} href="#home">
-                <img
-                  className={styles.icon}
-                  src={iconSearch}
-                  alt="Icon Search"
-                />
-              </Navbar.Brand>
-            </Nav> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

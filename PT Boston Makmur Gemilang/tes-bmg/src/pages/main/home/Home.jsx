@@ -5,22 +5,25 @@ import styles from "./home.module.css";
 import defaultImg from "../../../assets/default.jpg";
 
 function Home() {
-  const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  // const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   const [btnPopular, setBtnPopular] = useState("Streaming");
-  const [btnFreeToWatch, setBtnFreeToWatch] = useState("Today");
+  const [btnTrending, setBtnTrending] = useState("day");
   const [watchPopularData, setWatchPopularData] = useState([]);
+  const [trendingData, setTrendingData] = useState([]);
+
+  useEffect(() => {
+    getStreamingData();
+    getTrendingData("day");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleButtonPopular = (string) => {
     setBtnPopular(string);
   };
 
-  const handleBtnFreeToWatch = (string) => {
-    setBtnFreeToWatch(string);
+  const handleBtnTrending = (string) => {
+    setBtnTrending(string);
   };
-
-  useEffect(() => {
-    getStreamingData();
-  }, []);
 
   const getStreamingData = () => {
     fetch(
@@ -50,7 +53,7 @@ function Home() {
 
   const getForRentData = () => {
     fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=bf9b9dcdb82a2dedd93d2fec0a98a443&language=en-US&page=1s"
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=bf9b9dcdb82a2dedd93d2fec0a98a443&language=en-US&page=1"
     )
       .then((res) => {
         return res.json();
@@ -70,13 +73,22 @@ function Home() {
       })
       .then((res) => {
         setWatchPopularData(res.results);
-        console.log(res);
       })
       .catch((error) => console.log(error));
   };
 
-  console.log(watchPopularData);
-  console.log(btnPopular);
+  const getTrendingData = (string) => {
+    fetch(
+      `https://api.themoviedb.org/3/trending/movie/${string}?api_key=bf9b9dcdb82a2dedd93d2fec0a98a443`
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setTrendingData(res.results);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -151,7 +163,7 @@ function Home() {
                   <div className={styles.card} key={index}>
                     <img
                       src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${item.poster_path}`}
-                      alt=""
+                      alt={`${item.original_title}`}
                     />
                     <h5>{item.original_title}</h5>
                     <h6>{item.release_date}</h6>
@@ -178,37 +190,42 @@ function Home() {
               })
             : ""}
         </div>
+
         <div className={styles.navPopular}>
           <h4>Treding</h4>
           <div>
             <button
-              className={
-                btnFreeToWatch === "Today" ? styles.btnPopular : styles.not
-              }
-              onClick={() => handleBtnFreeToWatch("Today")}
+              className={btnTrending === "day" ? styles.btnPopular : styles.not}
+              onClick={() => {
+                handleBtnTrending("day");
+                getTrendingData("day");
+              }}
             >
               Today
             </button>
             <button
               className={
-                btnFreeToWatch === "This Week" ? styles.btnPopular : styles.not
+                btnTrending === "week" ? styles.btnPopular : styles.not
               }
-              onClick={() => handleBtnFreeToWatch("This Week")}
+              onClick={() => {
+                handleBtnTrending("week");
+                getTrendingData("week");
+              }}
             >
               This Week
             </button>
           </div>
         </div>
         <div className={styles.cardMovie}>
-          {num.map((item) => {
+          {trendingData.map((item, index) => {
             return (
-              <div className={styles.card} key={item}>
+              <div className={styles.card} key={index}>
                 <img
-                  src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vlv1gn98GqMnKHLSh0dNciqGfBl.jpg"
+                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${item.poster_path}`}
                   alt=""
                 />
-                <h5>Superman & Lois</h5>
-                <h6>Feb 23, 2021</h6>
+                <h5>{item.title}</h5>
+                <h6>{item.release_date}</h6>
               </div>
             );
           })}

@@ -1,11 +1,12 @@
 .container {
   padding: 0;
+  padding-top: 60px;
 }
 
 .welcome {
   padding: 60px 40px;
   color: white;
-  background: linear-gradient(to right, #17477a 20%, #0794bb 50%);
+  background: linear-gradient(to right, #063363 20%, #056d8a 50%);
 }
 
 .welcome h1,
@@ -94,4 +95,14 @@
   font-size: 16px;
   color: #7a7a7a;
   font-weight: 200;
+}
+
+.card:hover,
+.card:hover h5,
+.card:hover h6 {
+  cursor: pointer;
+}
+
+.card:hover h5 {
+  color: #01b4e4;
 }
