@@ -1,0 +1,89 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 500px;
+}
+
+.container h2 {
+  margin-bottom: 50px;
+}
+
+.inputEmail {
+  margin-top: 15px;
+}
+
+.btnNext {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnNext button {
+  padding: 5px 30px !important;
+}
+
+.container h1 {
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  background-color: rgb(184, 184, 184);
+  border-radius: 2px;
+}
+
+.container h1:hover {
+  background-color: rgb(121, 120, 120);
+}
+
+.jobDescData {
+  margin-bottom: 15px;
+}
+
+/* STYLES SECOND FORM PAGE */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.inputPhoneNumber {
+  margin-top: 15px;
+}
+
+.inputRadio {
+  padding: 0 15px !important;
+}
+
+.btnInput {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnInput button {
+  padding: 5px 30px !important;
+}
+
+/* CONFIRMATION */
+
+.titleConfirm {
+  margin-bottom: 30px !important;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+}
+
+.data h5 {
+  margin-bottom: 15px;
+}

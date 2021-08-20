@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import NavBar from "../../../components/Navbar/Navbar";
+import NavBar from "../../components/Navbar/Navbar";
 import styles from "./home.module.css";
-import defaultImg from "../../../assets/default.jpg";
+import defaultImg from "../../assets/default.jpg";
 
 function Home() {
   // const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
