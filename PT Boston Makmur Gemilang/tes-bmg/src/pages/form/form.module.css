@@ -6,7 +6,15 @@
 }
 
 .container {
-  width: 500px;
+  width: 700px;
+  border: black solid 1px;
+  padding: 60px 40px;
+}
+
+.containerFirstPage {
+  width: 700px;
+  border: black solid 1px;
+  padding: 20px 40px;
 }
 
 .container h2 {

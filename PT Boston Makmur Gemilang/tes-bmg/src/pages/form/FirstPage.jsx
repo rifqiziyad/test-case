@@ -30,8 +30,6 @@ function FirstPage(props) {
     }
   }, []);
 
-  console.log(form);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (form.jobdesc.length <= 0) {
@@ -45,7 +43,7 @@ function FirstPage(props) {
   return (
     <>
       <div className={styles.main}>
-        <Container className={styles.container}>
+        <Container className={styles.containerFirstPage}>
           <h2>Form Registration</h2>
           <Form onSubmit={handleSubmit}>
             <Row className="g-2">
@@ -118,8 +116,18 @@ function FirstPage(props) {
                 <option value="" hidden>
                   Open this select menu
                 </option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option
+                  selected={form.gender === "male" ? "selected" : null}
+                  value="male"
+                >
+                  Male
+                </option>
+                <option
+                  selected={form.gender === "female" ? "selected" : null}
+                  value="female"
+                >
+                  Female
+                </option>
               </Form.Select>
             </FloatingLabel>
 
