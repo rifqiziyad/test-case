@@ -1,22 +1,26 @@
 .logo {
   width: 12%;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .navbar {
   background-color: #0d253f;
-  padding: 20px 40px;
+  padding: 18px 40px;
 }
 
 .navbarMain {
   padding: 0;
   position: fixed;
+  z-index: 99;
   width: 100%;
+  display: flex;
 }
 
 .navbarLink a {
   color: white !important;
   font-weight: 500;
+  font-size: 14px;
   padding: 0 8px !important;
 }
 

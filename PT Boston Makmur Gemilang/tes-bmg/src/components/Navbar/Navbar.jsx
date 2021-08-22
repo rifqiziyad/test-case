@@ -3,12 +3,17 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../../assets/logo.svg";
 import styles from "./Navbar.module.css";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div>
       <Navbar className={styles.navbarMain} collapseOnSelect expand="lg">
         <Container fluid className={styles.navbar}>
-          <img className={styles.logo} src={logo} alt="Logo" />
+          <img
+            onClick={() => props.history.push("/")}
+            className={styles.logo}
+            src={logo}
+            alt="Logo"
+          />
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"

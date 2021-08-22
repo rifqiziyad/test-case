@@ -1,0 +1,106 @@
+.container {
+  padding: 55px 0 0 0;
+  position: relative;
+  overflow: auto;
+}
+
+.backgroundColor {
+  position: absolute;
+  width: 100%;
+  height: 542px;
+  background-color: rgb(7, 7, 7);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.mainContent {
+  position: absolute;
+  z-index: 2;
+  width: 101%;
+  height: 542px;
+  justify-content: space-evenly;
+}
+
+.poster {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sideLeft {
+  display: flex;
+  align-items: center;
+}
+
+.sideRight {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.sideRight .userScore {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.sideRight .userScore img {
+  width: 50px;
+  height: 30px;
+}
+
+.sideRight .userScore h6 {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.sideRight .userScore span {
+  border: rgb(0, 0, 0) solid 4px;
+  padding: 12px 10px;
+  border-radius: 100%;
+  margin-right: 15px;
+  font-weight: 800;
+}
+
+.sideRight .userScore h6 {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.sideRight .userScore h6:hover {
+  color: rgb(184, 184, 184);
+}
+
+.sideRight h6.tagline {
+  color: rgb(192, 192, 192);
+  font-style: italic;
+  font-weight: 100;
+}
+
+.youtubePlayer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999 !important;
+}
+
+.youtubePlayer div {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.youtubePlayer div h4:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.backgroundDark {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  opacity: 0.8;
+  z-index: 999;
+  background-color: rgb(0, 0, 0);
+}

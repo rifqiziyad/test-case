@@ -4,7 +4,7 @@ import NavBar from "../../components/Navbar/Navbar";
 import styles from "./home.module.css";
 import defaultImg from "../../assets/default.jpg";
 
-function Home() {
+function Home(props) {
   // const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   const [btnPopular, setBtnPopular] = useState("Streaming");
   const [btnTrending, setBtnTrending] = useState("day");
@@ -92,7 +92,7 @@ function Home() {
 
   return (
     <>
-      <NavBar />
+      <NavBar {...props} />
       <Container fluid className={styles.container}>
         <div className={styles.welcome}>
           <h1>Welcome.</h1>
@@ -159,8 +159,20 @@ function Home() {
         <div className={styles.cardMovie}>
           {btnPopular === "Streaming" || btnPopular === "For Rent"
             ? watchPopularData.map((item, index) => {
+                const movieName = item.original_title
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-");
                 return (
-                  <div className={styles.card} key={index}>
+                  <div
+                    className={styles.card}
+                    key={index}
+                    onClick={() =>
+                      props.history.push(
+                        `/tv/${item.id}?movie-name=${movieName}`
+                      )
+                    }
+                  >
                     <img
                       src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${item.poster_path}`}
                       alt={`${item.original_title}`}
@@ -170,11 +182,20 @@ function Home() {
                   </div>
                 );
               })
-            : ""}
+            : null}
           {btnPopular === "On TV" || btnPopular === "In Theaters"
             ? watchPopularData.map((item, index) => {
+                const movieName = item.name;
                 return (
-                  <div className={styles.card} key={index}>
+                  <div
+                    className={styles.card}
+                    key={index}
+                    onClick={() =>
+                      props.history.push(
+                        `/tv/${item.id}?movie-name=${movieName}`
+                      )
+                    }
+                  >
                     <img
                       src={
                         item.poster_path
@@ -188,7 +209,7 @@ function Home() {
                   </div>
                 );
               })
-            : ""}
+            : null}
         </div>
 
         <div className={styles.navPopular}>
