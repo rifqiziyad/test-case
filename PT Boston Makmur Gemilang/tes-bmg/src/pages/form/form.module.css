@@ -7,14 +7,14 @@
 
 .container {
   width: 700px;
-  border: black solid 1px;
+  border: rgb(199, 199, 199) solid 1px;
   border-radius: 10px;
   padding: 60px 40px;
 }
 
 .containerFirstPage {
   width: 700px;
-  border: black solid 1px;
+  border: rgb(199, 199, 199) solid 1px;
   padding: 20px 40px;
   border-radius: 10px;
 }
