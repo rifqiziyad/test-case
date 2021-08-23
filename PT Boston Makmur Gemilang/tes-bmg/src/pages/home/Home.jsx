@@ -5,7 +5,6 @@ import styles from "./home.module.css";
 import defaultImg from "../../assets/default.jpg";
 
 function Home(props) {
-  // const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   const [btnPopular, setBtnPopular] = useState("Streaming");
   const [btnTrending, setBtnTrending] = useState("day");
   const [watchPopularData, setWatchPopularData] = useState([]);
@@ -90,6 +89,12 @@ function Home(props) {
       .catch((error) => console.log(error));
   };
 
+  const handleSearch = (event) => {
+    if (event.key === "Enter") {
+      props.history.push(`/search-movie?search=${event.target.value}`);
+    }
+  };
+
   return (
     <>
       <NavBar {...props} />
@@ -102,7 +107,8 @@ function Home(props) {
           <div className={styles.search}>
             <input
               type="search"
-              placeholder="Search for a movie, tv show, person....."
+              placeholder="Search for a movie..."
+              onKeyPress={handleSearch}
             />
             <button>Search</button>
           </div>
@@ -159,10 +165,7 @@ function Home(props) {
         <div className={styles.cardMovie}>
           {btnPopular === "Streaming" || btnPopular === "For Rent"
             ? watchPopularData.map((item, index) => {
-                const movieName = item.original_title
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-");
+                const movieName = item.original_title;
                 return (
                   <div
                     className={styles.card}
@@ -240,7 +243,13 @@ function Home(props) {
         <div className={styles.cardMovie}>
           {trendingData.map((item, index) => {
             return (
-              <div className={styles.card} key={index}>
+              <div
+                className={styles.card}
+                key={index}
+                onClick={() =>
+                  props.history.push(`/tv/${item.id}?movie-name=${item.title}`)
+                }
+              >
                 <img
                   src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${item.poster_path}`}
                   alt=""

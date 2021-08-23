@@ -45,6 +45,12 @@ function NavBar(props) {
               <Nav.Link href="#pricing">More</Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <button
+            className={styles.btnRegister}
+            onClick={() => props.history.push("/first-form")}
+          >
+            Register
+          </button>
         </Container>
       </Navbar>
     </div>

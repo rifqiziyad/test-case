@@ -1,6 +1,6 @@
 .container {
   padding: 0;
-  padding-top: 50px;
+  padding-top: 58px;
 }
 
 .welcome {
@@ -39,6 +39,10 @@
   font-weight: 700;
 }
 
+.search button:hover {
+  box-shadow: #063363 5px 5px 10px;
+}
+
 .navPopular {
   padding: 30px 40px 10px;
   display: flex;
@@ -56,7 +60,7 @@
 }
 
 .navPopular div button {
-  padding: 3px 20px;
+  padding: 2px 20px;
   border: none;
   border-radius: 20px;
   background-color: white;

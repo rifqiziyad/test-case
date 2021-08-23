@@ -6,7 +6,8 @@
 
 .navbar {
   background-color: #0d253f;
-  padding: 18px 40px;
+  padding: 12px 40px;
+  box-sizing: border-box;
 }
 
 .navbarMain {
@@ -50,4 +51,16 @@
   margin-right: 15px;
   font-size: 25px;
   padding: 20px;
+}
+
+.btnRegister {
+  background: linear-gradient(to right, #59d6f8, #01b4e4);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 10px;
+}
+
+.btnRegister:hover {
+  background: #2b606e;
 }

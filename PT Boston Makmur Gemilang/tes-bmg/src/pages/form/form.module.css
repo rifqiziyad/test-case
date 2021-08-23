@@ -8,6 +8,7 @@
 .container {
   width: 700px;
   border: black solid 1px;
+  border-radius: 10px;
   padding: 60px 40px;
 }
 
@@ -15,6 +16,7 @@
   width: 700px;
   border: black solid 1px;
   padding: 20px 40px;
+  border-radius: 10px;
 }
 
 .container h2 {
@@ -50,6 +52,14 @@
 
 .jobDescData {
   margin-bottom: 15px;
+}
+
+.btnPlus {
+  cursor: pointer;
+}
+
+.btnPlus:hover {
+  color: rgb(73, 73, 73);
 }
 
 /* STYLES SECOND FORM PAGE */

@@ -3,7 +3,8 @@ import Home from "./pages/home/Home";
 import FirstForm from "./pages/form/FirstPage";
 import SecondPage from "./pages/form/SecondPage";
 import Confirmation from "./pages/form/Confirmation";
-import MovieById from "./pages/MovieByid/MovieById";
+import MovieById from "./pages/movieByid/MovieById";
+import Search from "./pages/search/Search";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/second-form" exact component={SecondPage} />
         <Route path="/confirmation" exact component={Confirmation} />
         <Route path="/tv/:id" exact component={MovieById} />
+        <Route path="/search-movie" exact component={Search} />
       </Switch>
     </Router>
   );

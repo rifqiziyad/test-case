@@ -20,7 +20,7 @@ function MovieById(props) {
 
   const backgroundImage = {
     width: "100%",
-    height: "542px",
+    height: "95vh",
     backgroundImage: `url(${`https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${data.backgroundImage}`})`,
     backgroundPosition: "center",
     backgroundSize: "cover",

@@ -33,6 +33,12 @@ function Confirmation(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const onSubmit = () => {
+    alert("Thank you for submit form");
+    localStorage.clear();
+    props.history.push("/first-form");
+  };
+
   return (
     <>
       <div className={styles.main}>
@@ -59,7 +65,9 @@ function Confirmation(props) {
             >
               Back
             </Button>
-            <Button variant="outline-primary">Submit</Button>
+            <Button onClick={onSubmit} variant="outline-primary">
+              Submit
+            </Button>
           </div>
         </Container>
       </div>
